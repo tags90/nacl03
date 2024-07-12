@@ -1,18 +1,22 @@
 from tools import gathering
+from info import aboutGathering
+from menu import menuBase
 
 g = gathering.Gathering()
 
-ext_option = input()
+def menu():
+    print("\nHãy nhập tiện ích\n/getHeader\n/.....")
+    ext_option = input("Hãy nhập tiện ích >>>")
 
-if ext_option != None:
-    while ext_option == "/exit":
-
-        # Bảng thông của tool phải được hiển thị liên tục
-        print("/.....\n/.....")
+    while ext_option != "/exit":
         
         # Điều kiện chọn tiện ích
-        if ext_option =="/about":
-            print("n")
+        if ext_option == "/about":
+            aboutGathering.helpGathering()
+        
+        elif ext_option == "/getHeader":
+            g.getHeader()
 
-else: 
-    print("lỗi")
+        menu()
+    print ("Quay trở lại")           
+    menuBase.menu()        

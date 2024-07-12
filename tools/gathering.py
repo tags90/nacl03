@@ -15,7 +15,7 @@ class Gathering:
     def getHeader(self):
         if self.url is None:
             self.setURL("mới")  # Hoặc bất kỳ chuỗi nào bạn muốn nhắc người dùng
-        r = requests.get(self.getURL())
+        r = requests.get("https://"+ self.getURL())
         print(r.headers)
 
 # Ví dụ sử dụng:

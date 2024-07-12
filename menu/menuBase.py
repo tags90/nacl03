@@ -1,32 +1,35 @@
-from tools import gathering
+import main, os
+from colorama import Fore, Style
 from info import help, aboutme
+from menu import menuGathering
 
 
-def menu():
-    
-    option = input("Hay nhap lenh >>> ")
 
-    while option != "/exit":
-        print("\n===================================================\n")
-        if option == "/help":
-            help.show_help()
+def menu():    
+    option = input(Fore.GREEN + "Hay nhap lenh >>> ")
+    os.system("cls")
 
-        elif option == "/about":
-            aboutme.about()
+    if option != None:
+        while option != "/exit":
 
-        elif option == "/thuthapthongtinweb":
-            # In ra chức năng thứ 1
-            print('Đang chạy chức năng thu thập')
-            # Nhập các chức năng 
-            g = gathering.Gathering()
-            g.getHeader()
+            if option == "/help":
+                help.show_help()
 
-        else:
-            print("\n\n\nNhập ngu. Vui lòng nhập lại")
+            elif option == "/about":
+                aboutme.about()
+
+            elif option == "/gathering":
+                print('Đang chạy chức năng thu thập')
+                # Nhập các chức năng            
+                menuGathering.menu()
+
+            else:
+                print(Fore.RED +"Nhập ngu. Vui lòng nhập lại")
         
-        # Ngắt phần chạy menu        
-        menu()
-        
+            # Ngắt phần chạy menu        
+            menu()
+        main.stop()
     
-    # In ra thông báo đã sử dụng tool
-    print("\n\n\nBye bye. Cám ơn vì đã dùng tới tao\n\n\n")
+        # In ra thông báo đã sử dụng tool
+    
+    
