@@ -1,16 +1,14 @@
 from menu import menuBase
 import os, sys
+from colorama import Fore
 
-def main():
-    print("\n===================================================")
-    print("Chào mừng bạn đã đến với TOOLS :3")
-    print("/help để biết thêm chi tiết")
-    print("===================================================\n")
+def main():    
     os.system("cls")
     menuBase.menu()
 
 def stop():
-    os.system("cls")   
+    os.system("cls")
+    print(Fore.WHITE)
     sys.exit()
 
 if __name__ == '__main__':    

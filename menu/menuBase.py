@@ -1,16 +1,16 @@
 import main, os
 from colorama import Fore, Style
-from info import help, aboutme
+from info import help, aboutme, gettingStarted
 from menu import menuGathering
 
-
-
 def menu():    
+    gettingStarted.getStart()
+
     option = input(Fore.GREEN + "Hay nhap lenh >>> ")
     os.system("cls")
 
     if option != None:
-        while option != "/exit":
+        while option != "/exit": 
 
             if option == "/help":
                 help.show_help()
@@ -19,17 +19,13 @@ def menu():
                 aboutme.about()
 
             elif option == "/gathering":
-                print('Đang chạy chức năng thu thập')
-                # Nhập các chức năng            
+                print(Fore.YELLOW + 'Đang chạy chức năng thu thập')            
                 menuGathering.menu()
 
             else:
-                print(Fore.RED +"Nhập ngu. Vui lòng nhập lại")
-        
+                print(Fore.RED +"Nhập ngu quá :))). Vui lòng nhập lại\n")        
             # Ngắt phần chạy menu        
             menu()
         main.stop()
-    
-        # In ra thông báo đã sử dụng tool
     
     
