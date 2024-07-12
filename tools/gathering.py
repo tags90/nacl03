@@ -1,23 +1,21 @@
-import requests
+import requests, socket, json
 
 class Gathering:
-
-    def __init__(self, url=None):
-        self.url = url
-    
-    def getURL(self):
-        return self.url
-    
-    def setURL(self, value):
-        self.url = input("Nhập URL " + value + ": ")
-        return self.getURL()
-    
-    def getHeader(self):
-        if self.url is None:
-            self.setURL("mới")  # Hoặc bất kỳ chuỗi nào bạn muốn nhắc người dùng
-        r = requests.get("https://"+ self.getURL())
+    def getHeader():
+        url = input("Nhập hostname: ")
+        r = requests.get("https://"+ url)
         print(r.headers)
 
-# Ví dụ sử dụng:
-# gathering = Gathering()
-# gathering.getHeader()
+    def getInternetProtocolFromHostName():
+        url = input("Nhập hostname: ")
+        ip = socket.gethostbyname(url)
+        print(f"IP của {url} là {ip}")
+    
+    def getLocation():
+        ip = input("Nhập IP: ")
+        r = requests.get("https://ipinfo.io/"+ ip +"/json")
+        data = json.loads(r.text)
+        print("Vị trí hiện tại của " + ip + " is " + data["loc"])
+        
+
+        

@@ -4,8 +4,6 @@ from menu import menuBase
 from colorama import Fore
 import os
 
-g = gathering.Gathering()
-
 def menu():
     aboutGathering.getG()
     ext_option = input(Fore.GREEN + "Hãy nhập tiện ích >>>")
@@ -16,9 +14,15 @@ def menu():
         if ext_option == "/help":
             aboutGathering.helpGathering()
         
-        elif ext_option == "/getHeader":
-            g.getHeader()
+        elif ext_option == "/location":
+            gathering.Gathering.getLocation()
+        
+        elif ext_option == "/header":
+            gathering.Gathering.getHeader()
+
+        elif ext_option == "/hostname":
+            gathering.Gathering.getInternetProtocolFromHostName()
 
         menu()
-    print ("Quay trở lại")           
+    print (Fore.RED+ "Quay trở lại\n")           
     menuBase.menu()        
