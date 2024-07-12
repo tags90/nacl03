@@ -1,6 +1,6 @@
 from tools import gathering
-from help import show_help
-from aboutme import about
+from info import help, aboutme
+
 
 def menu():
     
@@ -9,17 +9,17 @@ def menu():
     while option != "/exit":
         print("\n===================================================\n")
         if option == "/help":
-            show_help()
+            help.show_help()
 
         elif option == "/about":
-            about()
+            aboutme.about()
 
         elif option == "/thuthapthongtinweb":
             # In ra chức năng thứ 1
             print('Đang chạy chức năng thu thập')
             # Nhập các chức năng 
             g = gathering.Gathering()
-            g.getHeader()          
+            g.getHeader()
 
         else:
             print("\n\n\nNhập ngu. Vui lòng nhập lại")
